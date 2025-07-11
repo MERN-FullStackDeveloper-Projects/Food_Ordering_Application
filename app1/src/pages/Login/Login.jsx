@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Login.css'
 import {toast} from 'react-toastify'
 import { login } from '../../services/users'
+import { Link } from 'react-router-dom'
 function Login() {
  const [email, setEmail] = useState('')
  const [password, setPassword] = useState('')
@@ -34,6 +35,10 @@ if (email.length  == 0 ){
       <input onChange={e=> setPassword(e.target.value)} type="password" className="form-control" />
     </div>
 <div className='mb-3'>
+  {/* //directly given ancher tag its not a final solution to hit link Register here page reload server side rendering if u see ganna.com website is pure client side rendering logo not render*/}
+    {/* <div className='mb-3'>dont have an account yet? <a href='/register'>Register here</a></div> */}
+{/* after add Link to my aplication purely loading acting as SPA client side */}
+  <div className='mb-3'>dont have an account yet? <Link to='/register'>Register here</Link></div>
   <button onClick={onLogin} className='btn btn-success'>Login</button>
     </div>
     </div>

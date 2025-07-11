@@ -1,0 +1,21 @@
+.input-container{
+    margin-bottom: 10px;
+
+}
+.input-container label{
+    display: block;
+    margin-bottom: 5px;
+    color:#6f6e6e ;
+}
+.input-container input{
+    width: 100% ;
+    padding: 5px;
+
+}
+.reg-form-container{
+   width: 400px;
+   margin: auto;
+   margin-top: 20px;
+ 
+
+}
