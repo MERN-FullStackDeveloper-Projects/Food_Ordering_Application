@@ -20,6 +20,14 @@ const navigate = useNavigate()
       const result = await login(email, password);
       if (result["status"] == ["success"]) {
         toast.success("successfully login");
+
+//chache the required data
+const data= result['data'] 
+sessionStorage.setItem('name',`${data['firstName']}  ${data['lastName']}`)
+sessionStorage.setItem('token',`${data['token']}  `)
+
+
+
 //go to the home screen
 navigate('/home')
 
