@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Register.css'
 import { toast } from 'react-toastify'
 import { registerUser } from '../../services/users'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
  function Register() {
 // 2
 const [firstName ,setFirstName] = useState('')
@@ -10,6 +10,10 @@ const [lastName ,setLastName] = useState('')
 const [email ,setEmail] = useState('')
 const [password ,setPassword] = useState('')
 const [confirmPassword ,setConfirmPassword] = useState('')
+
+//get the navigation function reference
+const navigate = useNavigate()
+
 //4
 const onRegister =async () => {
     if (firstName.length == 0) {
@@ -28,6 +32,14 @@ const onRegister =async () => {
         const result = await registerUser(firstName, lastName,email,password)
     if (result['status'] == 'success') {
         toast.success('successfully registered a user')
+
+
+        //go to the login page
+            //  navigate('/')
+        //going back to privious one page 
+        navigate(-1)
+   
+
     }
     }
 }
