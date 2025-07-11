@@ -1,10 +1,11 @@
 import React from "react";
 import "./Home.css";
-import { Link} from "react-router-dom";
+import NavBar from "../../components/NavBar";
+// import { Link} from "react-router-dom";
 function Home() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-primary " data-bs-theme="dark">
+      {/* <nav className="navbar navbar-expand-lg bg-primary " data-bs-theme="dark">
         <div className="container-fluid">
           <Link className="navbar-brand" to='/home'>Food App</Link>
           <button
@@ -35,7 +36,8 @@ function Home() {
             </div>
           </div>
         </div>
-      </nav>
+      </nav> */}
+      <NavBar/>
       <h2 className="page-header">Home Pge</h2>
     </div>
   );
