@@ -1,3 +1,6 @@
 export const config = {
-    serverBaseUrl: 'http://localhost:4000',
+    serverBaseUrlUser: 'http://localhost:4000',
+    serverBaseUrlCatalog: 'http://localhost:4001',
+
+    // later will do it by using API gateway
 }

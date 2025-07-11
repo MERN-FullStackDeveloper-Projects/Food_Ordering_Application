@@ -6,7 +6,7 @@ export async function login(email,password) {
     try {
            //create url
 // const url = "http://localhost:4000/user/login"
-const url = `${config.serverBaseUrl}/user/login`
+const url = `${config.serverBaseUrlUser}/user/login`
     //create body
 const body = {email, password}
     //send the request and get the response
@@ -24,7 +24,7 @@ export async function registerUser(firstName, lastName, email, password) {
     try {
            //create url
 // const url = "http://localhost:4000/user/login"
-const url = `${config.serverBaseUrl}/user/register`
+const url = `${config.serverBaseUrlUser}/user/register`
     //create body
 const body = {firstName, lastName, email, password}
     //send the request and get the response

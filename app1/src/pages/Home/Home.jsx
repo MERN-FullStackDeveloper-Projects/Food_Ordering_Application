@@ -1,8 +1,14 @@
 import React from "react";
 import "./Home.css";
 import NavBar from "../../components/NavBar";
+import { loadCatalog } from "../../services/catalog";
 // import { Link} from "react-router-dom";
 function Home() {
+const getCatalog = async () => {
+  const result = await loadCatalog()
+  console.log(result)
+}
+
   return (
     <div>
       {/* <nav className="navbar navbar-expand-lg bg-primary " data-bs-theme="dark">
@@ -38,7 +44,10 @@ function Home() {
         </div>
       </nav> */}
       <NavBar/>
+      <div className="container">
       <h2 className="page-header">Home Pge</h2>
+      <button onClick={getCatalog}>load Catalog</button>
+      </div>
     </div>
   );
 }
