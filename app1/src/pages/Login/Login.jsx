@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import "./Login.css";
 import { toast } from "react-toastify";
 import { login } from "../../services/users";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+//get the navigate function reference
+const navigate = useNavigate()
+
 
   const onLogin = async () => {
     if (email.length == 0) {
@@ -16,6 +20,9 @@ function Login() {
       const result = await login(email, password);
       if (result["status"] == ["success"]) {
         toast.success("successfully login");
+//go to the home screen
+navigate('/home')
+
       }else{
         toast.error('invalid user')
       }
@@ -53,7 +60,7 @@ function Login() {
           <button onClick={onLogin} className="btn btn-success">
             Login
           </button>
-          
+
         </div>
       </div>
     </div>
