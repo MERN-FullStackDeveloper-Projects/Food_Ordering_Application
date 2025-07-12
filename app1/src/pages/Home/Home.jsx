@@ -44,7 +44,7 @@ function Home() {
       </nav> */}
       <NavBar/>
       <div className="container">
-      <h2 className="page-header">Home</h2>
+     
       {/*placeholder to load the child component*/}
       <Outlet/>
       </div>

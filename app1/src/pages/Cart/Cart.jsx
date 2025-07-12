@@ -4,7 +4,7 @@ import NavBar from '../../components/NavBar'
 function Cart() {
   return (
     <div>
-     <NavBar/>
+  
       <h2 className="page-header">Cart Page</h2>
     </div>
   )

@@ -2,6 +2,7 @@
 // axios react-toastify
 //https://getbootstrap.com/
 import React from "react";
+
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Home from "./pages/Home/Home";
@@ -10,6 +11,7 @@ import Cart from "./pages/Cart/Cart";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Products from "./pages/Products/Products";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
          <Route path="products" element={<Products />} />
           <Route path="cart" element={<Cart />} />
           <Route path="orders" element={<Orders />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
       </Routes>
       {/* //without toast container toast not showing pop up  */}

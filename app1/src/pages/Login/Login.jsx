@@ -29,7 +29,7 @@ sessionStorage.setItem('token',`${data['token']}  `)
 
 
 //go to the home screen
-navigate('/app')
+navigate('/app/products')
 
       }else{
         toast.error('invalid user')

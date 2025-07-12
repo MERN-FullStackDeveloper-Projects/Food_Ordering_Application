@@ -44,6 +44,9 @@ function NavBar() {
               <Link className="nav-link" to="/app/orders">
                 Orders
               </Link>
+              <Link className="nav-link" to="/app/profile">
+                Profile
+              </Link>
               <button
                 onClick={onLogout}
                 // className="nav-link disabled"

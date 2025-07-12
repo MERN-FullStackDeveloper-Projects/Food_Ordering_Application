@@ -11,11 +11,16 @@ const url = `${config.serverBaseUrlCatalog}/food-item/`
 //read the token 
 const token = sessionStorage.getItem('token')
 console.log(token)
+if (!token) {
+  return { status: 'error', error: 'User not logged in. Token missing.' };
+}
+
+
 //create load the token to the heders the parameters
 const headers = {
     headers : {
 
-        authorization: `Bearer ${sessionStorage.getItem('token')}`
+        Authorization: `Bearer ${sessionStorage.getItem('token')}`
     },
     
 }
@@ -27,6 +32,7 @@ const response = await axios.get(url,headers)
 return response.data
     } catch (ex) {
         console.log(`exception : `,ex)
+         return { status: 'error', error: ex.message };
     }
  
 }
