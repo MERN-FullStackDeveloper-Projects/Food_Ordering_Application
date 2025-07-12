@@ -46,12 +46,39 @@ const url = `${config.serverBaseUrlUser}/user/profile`
     //create header with token
     const headers = {
         headers:{
-            Authorization : `Bearer $(sessionStorage.getItem('token'))`
+            Authorization : `Bearer ${sessionStorage.getItem('token')}`
         },
     }
 
     //send the request and get the response
 const response = await axios.get(url, headers)
+
+//return the response body
+return response.data
+    } catch (ex) {
+        console.log(`exception : `,ex)
+    }
+ 
+}
+
+
+export async function updateProfile(firstName,lastName) {
+    try {
+           //create url
+// const url = "http://localhost:4000/user/login"
+const url = `${config.serverBaseUrlUser}/user/profile`
+    //create body
+const body = {firstName,lastName}
+//create header with token
+    const headers = {
+        headers:{
+            Authorization : `Bearer ${sessionStorage.getItem('token')}`
+        },
+    }
+
+
+    //send the request and get the response
+const response = await axios.put(url,body, headers)
 
 //return the response body
 return response.data
