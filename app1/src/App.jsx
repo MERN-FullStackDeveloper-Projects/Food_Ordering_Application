@@ -13,6 +13,7 @@ import { ToastContainer } from "react-toastify";
 import Products from "./pages/Products/Products";
 import Profile from "./pages/Profile/Profile";
 import NotFound from "./pages/NotFound/NotFound";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 //create a context to share the user details all the components
  export const AuthContext = createContext()
@@ -31,7 +32,14 @@ const [user, setUser] = useState(null)
 
         {/* Home is a parent component */}
         {/* <Route path="/app" element={<Home />}>  if user is available only then let user access this component otherwise redirect ti / */}
-        <Route path="/app" element={user? <Home /> : <Navigate to='/'/>}>
+       
+       
+        {/* <Route path="/app" element={user? <Home /> : <Navigate to='/'/>}> */}
+      {/* other soultion */}
+               <Route path="/app" element={<ProtectedRoute>
+                <Home/>
+               </ProtectedRoute>}>
+
         {/*child components */}
          <Route path="products" element={<Products />} />
           <Route path="cart" element={<Cart />} />
