@@ -1,6 +1,7 @@
 
 import "./Home.css";
 import NavBar from "../../components/NavBar";
+import { Outlet } from "react-router-dom";
 
 // import { Link} from "react-router-dom";
 function Home() {
@@ -43,8 +44,9 @@ function Home() {
       </nav> */}
       <NavBar/>
       <div className="container">
-      <h2 className="page-header">Home Pge</h2>
-      
+      <h2 className="page-header">Home</h2>
+      {/*placeholder to load the child component*/}
+      <Outlet/>
       </div>
     </div>
   );

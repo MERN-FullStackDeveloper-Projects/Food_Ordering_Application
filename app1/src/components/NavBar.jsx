@@ -35,13 +35,13 @@ function NavBar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <Link className="nav-link active" aria-current="page" to="/home">
+              <Link className="nav-link active" aria-current="page" to="/app/products">
                 Home
               </Link>
-              <Link className="nav-link" to="/cart">
+              <Link className="nav-link" to="/app/cart">
                 Cart
               </Link>
-              <Link className="nav-link" to="/orders">
+              <Link className="nav-link" to="/app/orders">
                 Orders
               </Link>
               <button
