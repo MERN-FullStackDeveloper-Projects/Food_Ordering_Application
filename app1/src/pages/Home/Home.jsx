@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Home.css";
 import NavBar from "../../components/NavBar";
 import { loadCatalog } from "../../services/catalog";
+import {toast} from 'react-toastify'
 // import { Link} from "react-router-dom";
 function Home() {
+const [items, setItems] = useState([])
+
 const getCatalog = async () => {
   const result = await loadCatalog()
-  console.log(result)
+  if (result['status'] == 'success') {
+    setItems(result['data'])
+  }else{
+    toast.error(result['error'])
+  }
+   console.log(result)
 }
 
   return (
@@ -47,6 +55,13 @@ const getCatalog = async () => {
       <div className="container">
       <h2 className="page-header">Home Pge</h2>
       <button onClick={getCatalog}>load Catalog</button>
+     <div className="row">
+      <div className="col-3">
+        <div className="card">
+          <img src="..." className="card-img-top" alt="..."></img>
+        </div>
+      </div>
+     </div>
       </div>
     </div>
   );
