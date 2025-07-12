@@ -6,6 +6,7 @@ try {
            //create url
 // const url = "http://localhost:4001/user/catalog"
 const url = `${config.serverBaseUrlCatalog}/food-item/`
+// const url = `${config.serverBaseUrlCatalog}/category/`
 
 //read the token 
 const token = sessionStorage.getItem('token')
