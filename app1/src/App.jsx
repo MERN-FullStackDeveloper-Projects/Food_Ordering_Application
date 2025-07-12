@@ -12,6 +12,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Products from "./pages/Products/Products";
 import Profile from "./pages/Profile/Profile";
+import NotFound from "./pages/NotFound/NotFound";
 
 //create a context to share the user details all the components
  export const AuthContext = createContext()
@@ -26,6 +27,8 @@ const [user, setUser] = useState(null)
       <Routes>
         <Route index path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
+                <Route path="*" element={<NotFound />} />
+
         {/* Home is a parent component */}
         {/* <Route path="/app" element={<Home />}>  if user is available only then let user access this component otherwise redirect ti / */}
         <Route path="/app" element={user? <Home /> : <Navigate to='/'/>}>
