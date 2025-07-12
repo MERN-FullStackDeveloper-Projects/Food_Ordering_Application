@@ -10,7 +10,7 @@ const url = `${config.serverBaseUrlCatalog}/food-item/`
 
 //read the token 
 const token = sessionStorage.getItem('token')
-console.log(token)
+console.log(`token = ${token}`)
 if (!token) {
   return { status: 'error', error: 'User not logged in. Token missing.' };
 }
@@ -20,7 +20,7 @@ if (!token) {
 const headers = {
     headers : {
 
-        Authorization: `Bearer ${sessionStorage.getItem('token')}`
+        Authorization: `Bearer ${token}`
     },
     
 }

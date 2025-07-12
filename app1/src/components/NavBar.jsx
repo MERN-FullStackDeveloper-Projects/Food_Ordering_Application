@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../App";
 
 function NavBar() {
+
+//read the user info from AuthContext
+const {setUser} = useContext(AuthContext)
+
   //get the navigate function reference
   const navigate = useNavigate();
 
@@ -10,6 +15,9 @@ function NavBar() {
     sessionStorage.removeItem("name");
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("email");
+
+    //reset it user in AuthContex
+setUser(null)
 
     //go to the login screen
     navigate("/");

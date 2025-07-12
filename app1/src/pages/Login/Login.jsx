@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Login.css";
 import { toast } from "react-toastify";
 import { login } from "../../services/users";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../App";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  //get the user details from AuthContext we just wanna updated
+  const {setUser} = useContext(AuthContext)
 
 //get the navigate function reference
 const navigate = useNavigate()
@@ -26,7 +29,11 @@ const data= result['data']
 sessionStorage.setItem('name',`${data['firstName']}  ${data['lastName']}`)
 sessionStorage.setItem('token',`${data['token']}  `)
 
-
+//update the AuthContext
+setUser({
+  firstName:data['firstName'],
+  lastName: data['lastName'],
+})
 
 //go to the home screen
 navigate('/app/products')
