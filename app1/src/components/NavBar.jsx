@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../App";
+import { useSelector } from 'react-redux'
 
 function NavBar() {
+  //get the cart items
+  const{items} = useSelector(store => store.cart)
 
 //read the user info from AuthContext
 const {setUser} = useContext(AuthContext)
@@ -47,7 +50,7 @@ setUser(null)
                 Home
               </Link>
               <Link className="nav-link" to="/app/cart">
-                Cart
+                Cart ({items.length})
               </Link>
               <Link className="nav-link" to="/app/orders">
                 Orders
