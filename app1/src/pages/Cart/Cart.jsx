@@ -126,6 +126,8 @@ function Cart() {
                   </tr>
                 </tbody>
               </table>
+
+              <button style={{width:'100%'}} className="btn btn-primary">Checkout</button>
             </div>
           </div>
         </div>
