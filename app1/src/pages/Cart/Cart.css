@@ -15,3 +15,9 @@
   font-size: 18px;
   color: #707070d8;  
 }
+.cart-summary{
+    padding:'10px';
+    border:'1px solid #939191';
+    border-radius: 10px;
+    box-shadow: 0 0 10 #939191;
+}
