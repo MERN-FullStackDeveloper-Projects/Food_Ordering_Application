@@ -21,13 +21,17 @@ const navigate = useNavigate()
       toast.warn("please enter password");
     } else {
       const result = await login(email, password);
-      if (result["status"] == ["success"]) {
+      if (result["status"] == 'success') {
         toast.success("successfully login");
 
 //chache the required data
 const data= result['data'] 
 sessionStorage.setItem('name',`${data['firstName']}  ${data['lastName']}`)
-sessionStorage.setItem('token',`${data['token']}  `)
+sessionStorage.setItem('token',`${data['token']}`)
+sessionStorage.setItem('user',JSON.stringify({
+   firstName:data['firstName'],
+  lastName: data['lastName'],
+}))
 
 //update the AuthContext
 setUser({

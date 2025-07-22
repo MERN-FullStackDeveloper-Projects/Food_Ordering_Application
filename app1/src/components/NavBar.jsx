@@ -18,12 +18,13 @@ const {setUser} = useContext(AuthContext)
     sessionStorage.removeItem("name");
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("email");
+    sessionStorage.removeItem('user')
 
     //reset it user in AuthContex
 setUser(null)
 
     //go to the login screen
-    navigate("/");
+    navigate("/")
   };
 
   return (

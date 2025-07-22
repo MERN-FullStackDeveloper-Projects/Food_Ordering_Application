@@ -10,7 +10,7 @@ function Home() {
 
   return (
     <div>
-      {/* <nav className="navbar navbar-expand-lg bg-primary " data-bs-theme="dark">
+      <nav className="navbar navbar-expand-lg bg-primary " data-bs-theme="dark">
         <div className="container-fluid">
           <Link className="navbar-brand" to='/home'>Food App</Link>
           <button
@@ -41,7 +41,7 @@ function Home() {
             </div>
           </div>
         </div>
-      </nav> */}
+      </nav>
       <NavBar/>
       <div className="container">
      

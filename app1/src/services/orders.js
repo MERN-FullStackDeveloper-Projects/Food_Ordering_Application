@@ -24,7 +24,7 @@ const headers = {
        const response = await axios.post(url,body,headers)
        return response.data
     }catch(error){
-        console.error('error making paymnet:',error)
+        console.error('error making payment:',error)
         throw error
     }
     

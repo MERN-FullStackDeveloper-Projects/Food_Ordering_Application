@@ -40,7 +40,7 @@ function Cart() {
     //get the  session id from the result
     const sessionId = result['data']['id']
     //create a stripe instance
-    const stripe = await loadStripe('publishable key paste here')
+    const stripe = await loadStripe('..........................publishable key paste here')
       //redirect to the checkout page
       const stripeResult = await stripe.redirectToCheckout({
         sessionId:sessionId,

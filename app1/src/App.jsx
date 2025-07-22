@@ -11,17 +11,19 @@ import Home from "./pages/Home/Home";
 import Orders from "./pages/Orders/Orders";
 import Cart from "./pages/Cart/Cart";
 import Products from "./pages/Products/Products";
-import Profile from "./pages/Profile/Profile";
+import Profile from "./pag es/Profile/Profile";
 import NotFound from "./pages/NotFound/NotFound";
-import Success from "./pages/Success/Success";  // ✅ Add this component
-import Error from "./pages/Error/Error";        // ✅ Add this component
+import Success from "./pages/Payment/Success";  // ✅ Add this component
+import Error from "./pages/Payment/Error";        // ✅ Add this component
 import ProtectedRoute from "./components/ProtectedRoute";
 
 // Create context to share user details with all components
 export const AuthContext = createContext();
 
 function App() {
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
+  const [user, setUser] = useState(sessionStorage.getItem('user')|| null);
+
 
   return (
     <div>
