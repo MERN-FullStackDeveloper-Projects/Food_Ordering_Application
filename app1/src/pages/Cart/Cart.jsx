@@ -8,6 +8,9 @@ import {
   removeFromCartAction,
   updateQuantityAction,
 } from "../../slices/cartSlice";
+import { makePayment } from "../../services/orders";
+import { toast } from "react-toastify";
+import {loadStripe} from '@stripe/stripe-js'
 function Cart() {
   const [total, setTotal] = useState(0);
   const { items } = useSelector((store) => store.cart);
@@ -31,6 +34,22 @@ function Cart() {
     calculateTotal();
   }, [items]);
 
+  const onMakePayment = async () => {
+    const result = await makePayment(items)
+    if (result['status'] == 'success') {
+    //get the  session id from the result
+    const sessionId = result['data']['id']
+    //create a stripe instance
+    const stripe = await loadStripe('publishable key paste here')
+      //redirect to the checkout page
+      const stripeResult = await stripe.redirectToCheckout({
+        sessionId:sessionId,
+      })
+      console.log('stripeResult:',stripeResult)
+    }else{
+      toast.error('paymentfailed plz try again later')
+    }
+  }
   const onIncrement = (item) => {
     //adding to the cart
     //update the quantity
@@ -127,7 +146,9 @@ function Cart() {
                 </tbody>
               </table>
 
-              <button style={{width:'100%'}} className="btn btn-primary">Checkout</button>
+              <button
+              onClick={onMakePayment}
+              style={{width:'100%'}} className="btn btn-primary">Checkout</button>
             </div>
           </div>
         </div>

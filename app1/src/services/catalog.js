@@ -20,7 +20,7 @@ if (!token) {
 const headers = {
     headers : {
 
-        Authorization: `Bearer ${token}`
+        authorization: `Bearer ${token}`
     },
     
 }
